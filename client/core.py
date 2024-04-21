@@ -4,6 +4,7 @@ def setup(port):
     return serial.Serial(port)
 
 def update(s, state):
+    s.reset_input_buffer()
     l = s.readline().decode("ascii").replace("\r\n", "")
     if not l.startswith("^"): return state
     l = l[1:]

@@ -8,6 +8,7 @@ lastvol = update(s, state)["vol"]
 interface = dbus.Interface(dbus.SessionBus().get_object('org.Cinnamon', '/org/Cinnamon'), 'org.Cinnamon')
 
 while True:
+    time.sleep(.05)
     state = update(s, state)
     if abs(state["vol"] - lastvol) >= 10:
         lastvol = state["vol"]
